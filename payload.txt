@@ -1,0 +1,15 @@
+REM Title: Run Batch file
+REM Author: SundayNightAnarchy
+REM Description: used as a base for running a pre-saved .bat file from the rubber ducky
+REM Target:
+ATTACKMODE STORAGE HID
+DELAY 1000
+GUI r
+DELAY 500
+STRINGLN powershell
+DELAY 1000
+REM gets the device letter of the rubber ducky and saves it in the variable $m
+STRINGLN $m=(Get-Volume -FileSystemLabel 'DUCKY').DriveLetter
+DELAY 1000
+REM runs your target file, replace "test script.bat" with whatever your file is called
+STRINGLN & "${m}:\test script.bat"
